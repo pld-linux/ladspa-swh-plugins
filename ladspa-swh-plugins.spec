@@ -20,11 +20,11 @@ URL:		http://plugin.org.uk/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	fftw3-single-devel
-#BuildRequires:	pkgconfig	(preferred - waiting for switching)
 BuildRequires:	gettext-devel
 BuildRequires:	ladspa-devel
 BuildRequires:	libgsm-devel
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 Requires:	ladspa-common
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
