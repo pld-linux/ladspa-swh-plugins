@@ -1,7 +1,7 @@
 #
 # Conditional build:
-%bcond_with 3dnow	# enables use of 3DNow! instructions
-%bcond_with sse		# enables use of SSE instructions
+%bcond_with	3dnow	# enables use of 3DNow! instructions
+%bcond_with	sse	# enables use of SSE instructions
 #
 %define		_name	swh-plugins
 #
@@ -64,12 +64,13 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang %{_name}
+#%find_lang %{_name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{_name}.lang
+#%files -f %{_name}.lang
+%files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_libdir}/ladspa/*.so
