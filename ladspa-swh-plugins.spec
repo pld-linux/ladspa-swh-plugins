@@ -1,3 +1,8 @@
+#
+# Conditional build:
+# _with_3dnow		- enables use of 3DNow! instrucions
+# _with_sse		- enables use of SSE instructions
+#
 
 %define		_name	swh-plugins
 
@@ -7,9 +12,10 @@ Name:		ladspa-swh-plugins
 Version:	0.4.2
 Release:	1
 License:	GPL
-Group:		X11/Applications/Multimedia
+Group:		Applications/Sound
 Source0:	http://plugin.org.uk/releases/%{version}/%{_name}-%{version}.tar.gz
 # Source0-md5:	2b20f2f879ec225be78fc880787108ec
+Patch0:		%{name}-use_our_optflags.patch
 URL:		http://plugin.org.uk/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -32,6 +38,7 @@ http://plugin.org.uk/).
 
 %prep
 %setup -q -n %{_name}-%{version}
+%patch0 -p1
 cd gsm
 mv README README.gsm
 
@@ -41,7 +48,8 @@ mv README README.gsm
 %{__automake}
 %{__autoconf}
 %configure \
-	%{?_with_3dnow:--enable-3dnow}
+	%{?_with_3dnow:--enable-3dnow} \
+	%{?_with_sse:--enable-sse}
 
 %{__make}
 
