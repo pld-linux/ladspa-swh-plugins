@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _with_3dnow		- enables use of 3DNow! instrucions
+# _with_3dnow		- enables use of 3DNow! instructions
 # _with_sse		- enables use of SSE instructions
 #
 
