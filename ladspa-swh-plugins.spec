@@ -16,12 +16,17 @@ Group:		Applications/Sound
 Source0:	http://plugin.org.uk/releases/%{version}/%{_name}-%{version}.tar.gz
 # Source0-md5:	2b20f2f879ec225be78fc880787108ec
 Patch0:		%{name}-use_our_optflags.patch
+Patch1:		%{name}-shared-gsm.patch
 URL:		http://plugin.org.uk/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	fftw-devel
+#BuildRequires: fftw3-single-devel, pkgconfig	(preferred - waiting for switching)
+BuildRequires:	gettext-devel
 BuildRequires:	ladspa-devel
+BuildRequires:	libgsm-devel
 BuildRequires:	libtool
+Requires:	ladspa-common
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %ifarch athlon
@@ -39,10 +44,10 @@ http://plugin.org.uk/).
 %prep
 %setup -q -n %{_name}-%{version}
 %patch0 -p1
-cd gsm
-mv README README.gsm
+%patch1 -p1
 
 %build
+%{__gettextize}
 %{__libtoolize}
 %{__aclocal}
 %{__automake}
@@ -55,6 +60,7 @@ mv README README.gsm
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -65,6 +71,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{_name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README TODO gsm/README.gsm
+%doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_libdir}/ladspa/*.so
 %{_datadir}/ladspa/rdf/swh-*.rdf
