@@ -1,8 +1,8 @@
 
 %define		_name	swh-plugins
 
-Summary:	A set of audio plugins for LADSPA.
-Summary(pl):	Zestaw pluginów dla LADSPA.
+Summary:	A set of audio plugins for LADSPA
+Summary(pl):	Zestaw wtyczek d¼wiêkowych dla LADSPA
 Name:		ladspa-swh-plugins
 Version:	0.4.2
 Release:	1
@@ -25,6 +25,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 A set of audio plugins for LADSPA (see http://plugin.org.uk/ for more
 details).
+
+%description -l pl
+Zestaw wtyczek d¼wiêkowych dla LADSPA (wiêcej informacji pod adresem
+http://plugin.org.uk/).
 
 %prep
 %setup -q -n %{_name}-%{version}
@@ -54,5 +58,5 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{_name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO gsm/README.gsm
-%{_libdir}/ladspa/*.so
+%attr(755,root,root) %{_libdir}/ladspa/*.so
 %{_datadir}/ladspa/rdf/swh-*.rdf
