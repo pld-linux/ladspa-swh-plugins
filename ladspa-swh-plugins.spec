@@ -1,27 +1,26 @@
 #
 # Conditional build:
-# _with_3dnow		- enables use of 3DNow! instructions
-# _with_sse		- enables use of SSE instructions
+%bcond_with 3dnow	# enables use of 3DNow! instructions
+%bcond_with sse		# enables use of SSE instructions
 #
-
 %define		_name	swh-plugins
-
+#
 Summary:	A set of LADSPA audio plugins
 Summary(pl):	Zestaw wtyczek d¼wiêkowych LADSPA
 Name:		ladspa-swh-plugins
-Version:	0.4.2
+Version:	0.4.3
 Release:	1
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://plugin.org.uk/releases/%{version}/%{_name}-%{version}.tar.gz
-# Source0-md5:	2b20f2f879ec225be78fc880787108ec
+# Source0-md5:	b248491d770d3f3bdaa96b0431e4ecd3
 Patch0:		%{name}-use_our_optflags.patch
 Patch1:		%{name}-shared-gsm.patch
 URL:		http://plugin.org.uk/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	fftw-devel
-#BuildRequires: fftw3-single-devel, pkgconfig	(preferred - waiting for switching)
+BuildRequires:	fftw3-single-devel
+#BuildRequires:	pkgconfig	(preferred - waiting for switching)
 BuildRequires:	gettext-devel
 BuildRequires:	ladspa-devel
 BuildRequires:	libgsm-devel
@@ -30,7 +29,7 @@ Requires:	ladspa-common
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %ifarch athlon
-%define		_with_3dnow	1
+%define		with_3dnow	1
 %endif
 
 %description
@@ -53,8 +52,8 @@ http://plugin.org.uk/).
 %{__automake}
 %{__autoconf}
 %configure \
-	%{?_with_3dnow:--enable-3dnow} \
-	%{?_with_sse:--enable-sse}
+	%{?with_3dnow:--enable-3dnow} \
+	%{?with_sse:--enable-sse}
 
 %{__make}
 
