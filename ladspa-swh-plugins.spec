@@ -9,7 +9,7 @@ Summary:	A set of LADSPA audio plugins
 Summary(pl):	Zestaw wtyczek d¼wiêkowych LADSPA
 Name:		ladspa-swh-plugins
 Version:	0.4.13
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://plugin.org.uk/releases/%{version}/%{_name}-%{version}.tar.gz
@@ -44,6 +44,8 @@ http://plugin.org.uk/).
 %setup -q -n %{_name}-%{version}
 %patch0 -p1
 %patch1 -p1
+
+sed -i -e 's:/lib/ladspa:/%{_lib}/ladspa:' Makefile.am
 
 %build
 %{__gettextize}
