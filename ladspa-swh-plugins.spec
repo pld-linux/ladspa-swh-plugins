@@ -6,7 +6,7 @@
 %define		_name	swh-plugins
 #
 Summary:	A set of LADSPA audio plugins
-Summary(pl.UTF-8):   Zestaw wtyczek dźwiękowych LADSPA
+Summary(pl.UTF-8):	Zestaw wtyczek dźwiękowych LADSPA
 Name:		ladspa-swh-plugins
 Version:	0.4.13
 Release:	2
