@@ -50,10 +50,10 @@ sed -i -e 's:/lib/ladspa:/%{_lib}/ladspa:' Makefile.am
 %build
 %{__gettextize}
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
+%{__autoconf}
 %{__autoheader}
 %{__automake}
-%{__autoconf}
 %configure \
 	%{?with_3dnow:--enable-3dnow} \
 	%{?with_sse:--enable-sse}
