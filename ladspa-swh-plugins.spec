@@ -20,7 +20,7 @@ URL:		http://plugin.org.uk/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	fftw3-single-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	ladspa-devel
 BuildRequires:	libgsm-devel
 BuildRequires:	libtool
