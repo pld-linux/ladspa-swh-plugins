@@ -1,6 +1,5 @@
-diff -aurN swh-plugins-0.4.13.orig/configure.in swh-plugins-0.4.13/configure.in
---- swh-plugins-0.4.13.orig/configure.in	2005-02-10 23:54:44.000000000 +0100
-+++ swh-plugins-0.4.13/configure.in	2005-03-24 23:49:55.381882768 +0100
+--- swh-plugins-0.4.16.orig/configure.ac	2005-02-10 23:54:44.000000000 +0100
++++ swh-plugins-0.4.16/configure.ac	2005-03-24 23:49:55.381882768 +0100
 @@ -102,7 +102,7 @@
    if test ${build_cpu} = "powerpc64"; then MACHINE=""; fi
    if test ${build_cpu} = "x86_64"; then MACHINE=""; fi
