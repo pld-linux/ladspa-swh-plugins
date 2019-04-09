@@ -8,7 +8,7 @@ Summary(pl.UTF-8):	Zestaw wtyczek dźwiękowych LADSPA
 Name:		ladspa-swh-plugins
 Version:	0.4.17
 Release:	1
-License:	GPL
+License:	GPL v2
 Group:		Applications/Sound
 #Source0Download: https://github.com/swh/ladspa/releases
 Source0:	https://github.com/swh/ladspa/archive/v%{version}/%{name}-%{version}.tar.gz
