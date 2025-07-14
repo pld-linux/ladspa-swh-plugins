@@ -41,8 +41,8 @@ http://plugin.org.uk/).
 
 %prep
 %setup -q -n ladspa-%{version}
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 %{__sed} -i -e 's:/lib/ladspa:/%{_lib}/ladspa:' Makefile.am
 %{__sed} -i -e '/^po\/Makefile.in$/d' configure.ac
